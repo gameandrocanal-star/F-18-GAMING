@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-18 Super Hornet Flight Simulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        #gameContainer {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #gameCanvas {
+            border: 2px solid #333;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        #hud {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            text-shadow: 0 0 5px #00ff00;
+            z-index: 10;
+        }
+
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 12px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #title {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="title">F-18 Super Hornet Flight Simulator</div>
+        
+        <canvas id="gameCanvas" width="1200" height="800"></canvas>
+        
+        <div id="hud">
+            <div>Altitude: <span id="altitude">0</span> ft</div>
+            <div>Velocidade: <span id="speed">0</span> kt</div>
+            <div>Direção: <span id="heading">0</span>°</div>
+            <div>Combustível: <span id="fuel">100</span>%</div>
+        </div>
+        
+        <div id="controls">
+            <strong>Controles:</strong><br>
+            W/S - Subir/Descer<br>
+            A/D - Virar Esquerda/Direita<br>
+            Q/E - Inclinar<br>
+            Shift - Acelerar<br>
+            Ctrl - Frear<br>
+            Espaço - Afterburner
+        </div>
+        
+        <div class="loading" id="loading">
+            Carregando F-18 Super Hornet...
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
+
